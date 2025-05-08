@@ -41,7 +41,7 @@ function App() {
     setLoading(true);
     setIsSearchActive(false);
     try {
-      const response = await axios.get<ItemType[]>('http://147.45.186.119:3001/items');
+      const response = await axios.get<ItemType[]>('https://lbbttujj.ru/items');
       if (response.status === 200) {
         setItems(response.data);
         setError(null);
@@ -64,7 +64,7 @@ function App() {
     setLoading(true);
     setIsSearchActive(true);
     try {
-      const response = await axios.get<ItemType[]>(`http://147.45.186.119:3001/items/search?q=${encodeURIComponent(query)}`);
+      const response = await axios.get<ItemType[]>(`https://lbbttujj.ru/items/search?q=${encodeURIComponent(query)}`);
       if (response.status === 200) {
         setItems(response.data);
         setError(null);
@@ -101,7 +101,7 @@ function App() {
 
     setIsAdding(true);
     try {
-      const response = await axios.post<ItemType>('http://147.45.186.119:3001/items', {
+      const response = await axios.post<ItemType>('https://lbbttujj.ru/items', {
         value: newItemValue.trim()
       });
       
@@ -134,7 +134,7 @@ function App() {
   const handleDeleteItem = async (id: number) => {
     setLoading(true);
     try {
-      const response = await axios.delete(`http://147.45.186.119:3001/items?id=${id}`);
+      const response = await axios.delete(`https://lbbttujj.ru/items?id=${id}`);
       if (response.status === 200) {
         await fetchItems();
         toast.success('Запись успешно удалена', {
@@ -155,8 +155,8 @@ function App() {
     setLoading(true);
     try {
       const url = period === 'all' 
-        ? 'http://147.45.186.119:3001/items'
-        : `http://147.45.186.119:3001/items?period=${period}`;
+        ? 'https://lbbttujj.ru/items'
+        : `https://lbbttujj.ru/items?period=${period}`;
       
       const response = await fetch(url);
       if (!response.ok) {
@@ -180,7 +180,7 @@ function App() {
   const handleRandomItem = async () => {
     setLoading(true);
     try {
-      const response = await axios.get<ItemType[]>('http://147.45.186.119:3001/items/random');
+      const response = await axios.get<ItemType[]>('https://lbbttujj.ru/items/random');
       if (response.status === 200) {
         setItems(response.data);
         toast.success('Случайная запись загружена', {
