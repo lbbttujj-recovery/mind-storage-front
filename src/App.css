@@ -239,13 +239,13 @@
   position: fixed;
   bottom: 20px;
   right: 20px;
-  width: 60px;
-  height: 60px;
-  border-radius: 30px;
+  width: 56px;
+  height: 56px;
+  border-radius: 28px;
   background-color: #8a2be2;
   color: white;
   border: none;
-  font-size: 32px;
+  font-size: 28px;
   font-weight: bold;
   cursor: pointer;
   display: flex;
@@ -322,6 +322,11 @@
   transition: all 0.3s ease;
   box-sizing: border-box;
   background-color: #f8f8f8;
+  resize: none;
+  min-height: 60px;
+  max-height: 300px;
+  overflow-y: auto;
+  line-height: 1.5;
 }
 
 .add-form-input:focus {
@@ -413,79 +418,141 @@
 
 /* Медиа-запросы для адаптивности */
 @media screen and (max-width: 768px) {
-  .add-button {
-    width: 54px;
-    height: 54px;
-    font-size: 28px;
+  .add-button, .dice-button {
+    width: 56px;
+    height: 56px;
+    font-size: 26px;
     bottom: 15px;
+  }
+  .add-button {
     right: 15px;
   }
-
-  .add-form-container {
-    padding: 16px;
+  .dice-button {
+    left: 15px;
   }
-
-  .add-form-title {
-    font-size: 22px;
-  }
-
-  .add-form-subtitle {
-    font-size: 15px;
-  }
-
   .add-form-input {
     padding: 14px;
     font-size: 17px;
-  }
-
-  .add-form-submit {
-    padding: 18px;
-    font-size: 17px;
-  }
-
-  .add-form-cancel {
-    padding: 14px;
-    font-size: 15px;
+    min-height: 54px;
   }
 }
 
 @media screen and (max-width: 480px) {
-  .add-button {
-    width: 48px;
-    height: 48px;
+  .add-button, .dice-button {
+    width: 56px;
+    height: 56px;
     font-size: 24px;
     bottom: 10px;
+  }
+  .add-button {
     right: 10px;
   }
-
-  .add-form-container {
-    padding: 12px;
+  .dice-button {
+    left: 10px;
   }
-
-  .add-form-title {
-    font-size: 20px;
-  }
-
-  .add-form-subtitle {
-    font-size: 14px;
-  }
-
   .add-form-input {
     padding: 12px;
     font-size: 16px;
-  }
-
-  .add-form-submit {
-    padding: 16px;
-    font-size: 16px;
-  }
-
-  .add-form-cancel {
-    padding: 12px;
-    font-size: 14px;
+    min-height: 48px;
+    border-radius: 10px;
   }
 }
 
 .items-list {
   margin-bottom: 100px; /* Постоянный отступ снизу */
+}
+
+.time-filters {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.time-filter-button {
+  padding: 12px 24px;
+  border: 2px solid #8a2be2;
+  border-radius: 25px;
+  background: none;
+  color: #8a2be2;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 140px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.time-filter-button:hover {
+  background-color: rgba(138, 43, 226, 0.1);
+}
+
+.time-filter-button.active {
+  background-color: #8a2be2;
+  color: white;
+}
+
+/* Медиа-запросы для адаптивности */
+@media screen and (max-width: 768px) {
+  .time-filters {
+    gap: 10px;
+    margin: 15px 0;
+  }
+
+  .time-filter-button {
+    padding: 10px 20px;
+    font-size: 17px;
+    min-width: 120px;
+    height: 44px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .time-filters {
+    gap: 8px;
+    margin: 10px 0;
+  }
+
+  .time-filter-button {
+    padding: 8px 16px;
+    font-size: 16px;
+    min-width: 100px;
+    height: 44px;
+    border-radius: 20px;
+  }
+}
+
+.dice-button {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 56px;
+  height: 56px;
+  border-radius: 28px;
+  background-color: #8a2be2;
+  color: white;
+  border: none;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(138, 43, 226, 0.3);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.dice-button:hover {
+  background-color: #9b4de3;
+  transform: scale(1.1);
+}
+
+.dice-button:active {
+  background-color: #7a1bd2;
+  transform: scale(0.95);
 }
